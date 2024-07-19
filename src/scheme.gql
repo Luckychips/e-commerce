@@ -1,0 +1,28 @@
+scalar Date
+
+type Brand {
+    id: ID!
+    name: String!
+    image: String!
+    isWish: Boolean!
+    wishCount: Int!
+}
+
+type Product {
+    id: ID!
+    name: String!
+    content: String!
+    price: Int!
+    discountRate: Int!
+    wishCount: Int!
+    reviewScore: Int!
+    reviewCount: Int!
+    qnaCount: Int!
+    brand: Brand
+}
+
+type Query {
+    greeting: String!
+    getBrand(id: String!): Brand!
+    getProduct(id: String!): Product!
+}
