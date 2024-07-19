@@ -15,9 +15,9 @@ export class ProductResolver {
     getProduct(@Args('id') id: string) {
         return {
             id: '',
-            name: '',
+            name: 'base item',
             content: '',
-            price: 0,
+            price: 100,
             discountRate: 0,
             wishCount: 0,
             reviewScore: 0,
