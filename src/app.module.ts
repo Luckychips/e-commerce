@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
-import { ProductModule } from '@/modules';
+import { BrandModule, ProductModule } from '@/modules';
 
 @Module({
     imports: [
+        BrandModule,
         ProductModule,
         GraphQLModule.forRoot<ApolloDriverConfig>({
             driver: ApolloDriver,

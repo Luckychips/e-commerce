@@ -8,6 +8,11 @@ type Brand {
     wishCount: Int!
 }
 
+input BrandInput {
+    name: String!
+    image: String!
+}
+
 type Product {
     id: ID!
     name: String!
@@ -21,8 +26,20 @@ type Product {
     brand: Brand
 }
 
+input ProductInput {
+    name: String!
+    content: String!
+    price: Int!
+    discountRate: Int!
+}
+
 type Query {
     greeting: String!
     getBrand(id: String!): Brand!
     getProduct(id: String!): Product!
+}
+
+type Mutation {
+    addBrand(brand: BrandInput!): Brand!
+    addProduct(product: ProductInput!): Product!
 }
