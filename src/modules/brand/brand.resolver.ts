@@ -1,4 +1,5 @@
 import { Args, Query, Resolver } from '@nestjs/graphql';
+import { ApolloError } from 'apollo-server-express';
 import { Brand } from './brand.model';
 import { BrandService } from './brand.service';
 
@@ -6,8 +7,12 @@ import { BrandService } from './brand.service';
 export class BrandResolver {
     constructor(private readonly brandtService: BrandService) {}
 
-    @Query((returns) => Brand)
-    getBrand(@Args('id') id: string) {
-        return this.brandtService.getBrand(id);
+    @Query(() => Brand)
+    async getBrand(@Args('id') id: string) {
+        try {
+            return await this.brandtService.getBrand(id);
+        } catch (e) {
+            throw new ApolloError(e);
+        }
     }
 }
