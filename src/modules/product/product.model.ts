@@ -19,9 +19,6 @@ export class Product {
     discountRate: number;
 
     @Field()
-    wishCount: number;
-
-    @Field()
     reviewScore: number;
 
     @Field()

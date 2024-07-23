@@ -26,7 +26,6 @@ import * as mongoose from 'mongoose';
 export class AppModule implements NestModule {
     private readonly isDev: boolean = process.env.NODE_ENV === 'dev';
     configure() {
-        console.log(process.env.MONGODB_URL);
         mongoose.set('debug', this.isDev);
     }
 }

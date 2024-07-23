@@ -4,8 +4,6 @@ type Brand {
     id: ID!
     name: String!
     image: String!
-    isWish: Boolean!
-    wishCount: Int!
 }
 
 input BrandInput {
@@ -19,7 +17,6 @@ type Product {
     content: String!
     price: Int!
     discountRate: Int!
-    wishCount: Int!
     reviewScore: Int!
     reviewCount: Int!
     qnaCount: Int!
