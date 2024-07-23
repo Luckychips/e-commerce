@@ -4,6 +4,7 @@ import { Document } from 'mongoose';
 
 export const BrandSchema = new mongoose.Schema({
     _id: { type: mongoose.Schema.Types.ObjectId, auto: true },
+    brandId: String,
     name: String,
     image: String,
 });
@@ -14,6 +15,9 @@ export class Brand extends Document {
     id: string;
 
     @Field()
+    brandId: string;
+
+    @Field()
     name: string;
 
     @Field()
@@ -22,6 +26,9 @@ export class Brand extends Document {
 
 @InputType()
 export class BrandInput {
+    @Field()
+    brandId: string;
+
     @Field()
     name: string;
 

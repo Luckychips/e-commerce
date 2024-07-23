@@ -2,11 +2,13 @@ scalar Date
 
 type Brand {
     id: ID!
+    brandId: String!
     name: String!
     image: String!
 }
 
 input BrandInput {
+    brandId: String!
     name: String!
     image: String!
 }
@@ -32,7 +34,9 @@ input ProductInput {
 
 type Query {
     greeting: String!
+    getBrandList: [Brand]
     getBrand(id: String!): Brand!
+    getBrandFromBrandId(brandId: String!): Brand!
     getProduct(id: String!): Product!
 }
 

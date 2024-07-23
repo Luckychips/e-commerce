@@ -10,17 +10,25 @@ export class BrandService {
         private readonly brandModel: Model<Brand>,
     ) {}
 
-    // async getBrandList(): Promise<Brand[]> {
-    //     try {
-    //         return await this.brandModel.find();
-    //     } catch (e) {
-    //         throw new ApolloError(e);
-    //     }
-    // }
+    async getBrandList(): Promise<Brand[]> {
+        try {
+            return await this.brandModel.find();
+        } catch (e) {
+            throw new ApolloError(e);
+        }
+    }
 
     async getBrand(id: string): Promise<Brand> {
         try {
             return await this.brandModel.findById(id);
+        } catch (e) {
+            throw new ApolloError(e);
+        }
+    }
+
+    async getBrandFromBrandId(brandId: string): Promise<Brand> {
+        try {
+            return await this.brandModel.findOne({ brandId });
         } catch (e) {
             throw new ApolloError(e);
         }
