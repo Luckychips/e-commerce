@@ -11,7 +11,7 @@ export class ProductResolver {
         return this.productService.getHello();
     }
 
-    @Query((returns) => Product)
+    @Query((returns) => Product, { nullable: true })
     getProduct(@Args('id') id: string) {
         return {
             id: '',

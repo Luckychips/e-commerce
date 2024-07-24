@@ -16,7 +16,7 @@ export class BrandResolver {
         }
     }
 
-    @Query(() => Brand)
+    @Query(() => Brand, { nullable: true })
     async getBrand(@Args('id') id: string) {
         try {
             return await this.brandtService.getBrand(id);
@@ -25,7 +25,7 @@ export class BrandResolver {
         }
     }
 
-    @Query(() => Brand)
+    @Query(() => Brand, { nullable: true })
     async getBrandFromBrandId(@Args('brandId') brandId: string) {
         try {
             return await this.brandtService.getBrandFromBrandId(brandId);

@@ -11,16 +11,16 @@ export const BrandSchema = new mongoose.Schema({
 
 @ObjectType({ description: 'brand' })
 export class Brand extends Document {
-    @Field(() => ID)
+    @Field(() => ID, { nullable: true })
     id: string;
 
-    @Field()
+    @Field({ nullable: true })
     brandId: string;
 
-    @Field()
+    @Field({ nullable: true })
     name: string;
 
-    @Field()
+    @Field({ nullable: true })
     image: string;
 }
 

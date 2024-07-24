@@ -3,30 +3,30 @@ import { Brand } from '@/modules/brand/brand.model';
 
 @ObjectType({ description: 'product' })
 export class Product {
-    @Field(() => ID)
+    @Field(() => ID, { nullable: true })
     id: string;
 
-    @Field()
+    @Field({ nullable: true })
     name: string;
 
-    @Field()
+    @Field({ nullable: true })
     content: string;
 
-    @Field()
+    @Field({ nullable: true })
     price: number;
 
-    @Field()
+    @Field({ nullable: true })
     discountRate: number;
 
-    @Field()
+    @Field({ nullable: true })
     reviewScore: number;
 
-    @Field()
+    @Field({ nullable: true })
     reviewCount: number;
 
-    @Field()
+    @Field({ nullable: true })
     qnaCount: number;
 
-    @Field(() => Brand)
+    @Field(() => Brand, { nullable: true })
     brand: Brand;
 }

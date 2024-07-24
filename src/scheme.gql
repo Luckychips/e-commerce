@@ -1,10 +1,10 @@
 scalar Date
 
 type Brand {
-    id: ID!
-    brandId: String!
-    name: String!
-    image: String!
+    id: ID
+    brandId: String
+    name: String
+    image: String
 }
 
 input BrandInput {
@@ -14,14 +14,14 @@ input BrandInput {
 }
 
 type Product {
-    id: ID!
-    name: String!
-    content: String!
-    price: Int!
-    discountRate: Int!
-    reviewScore: Int!
-    reviewCount: Int!
-    qnaCount: Int!
+    id: ID
+    name: String
+    content: String
+    price: Int
+    discountRate: Int
+    reviewScore: Int
+    reviewCount: Int
+    qnaCount: Int
     brand: Brand
 }
 
@@ -35,9 +35,9 @@ input ProductInput {
 type Query {
     greeting: String!
     getBrandList: [Brand]
-    getBrand(id: String!): Brand!
-    getBrandFromBrandId(brandId: String!): Brand!
-    getProduct(id: String!): Product!
+    getBrand(id: String!): Brand
+    getBrandFromBrandId(brandId: String!): Brand
+    getProduct(id: String!): Product
 }
 
 type Mutation {
