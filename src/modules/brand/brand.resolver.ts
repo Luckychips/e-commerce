@@ -7,7 +7,7 @@ import { BrandService } from './brand.service';
 export class BrandResolver {
     constructor(private readonly brandtService: BrandService) {}
 
-    @Query(() => Brand)
+    @Query(() => [Brand])
     async getBrandList() {
         try {
             return await this.brandtService.getBrandList();
@@ -29,6 +29,15 @@ export class BrandResolver {
     async getBrandFromBrandId(@Args('brandId') brandId: string) {
         try {
             return await this.brandtService.getBrandFromBrandId(brandId);
+        } catch (e) {
+            throw new ApolloError(e);
+        }
+    }
+
+    @Query(() => [Brand], { nullable: true })
+    async getBrandFromBrandName(@Args('brandName') brandName: string) {
+        try {
+            return await this.brandtService.getBrandFromBrandName(brandName);
         } catch (e) {
             throw new ApolloError(e);
         }

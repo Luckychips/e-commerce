@@ -37,6 +37,7 @@ type Query {
     getBrandList: [Brand]
     getBrand(id: String!): Brand
     getBrandFromBrandId(brandId: String!): Brand
+    getBrandFromBrandName(brandName: String!): [Brand]
     getProduct(id: String!): Product
 }
 

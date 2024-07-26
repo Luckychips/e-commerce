@@ -34,6 +34,14 @@ export class BrandService {
         }
     }
 
+    async getBrandFromBrandName(brandName: string): Promise<Brand[]> {
+        try {
+            return await this.brandModel.find({ name: brandName }).exec();
+        } catch (e) {
+            throw new ApolloError(e);
+        }
+    }
+
     async addBrand(inputData: BrandInput): Promise<Brand> {
         try {
             return await this.brandModel.create(inputData);
