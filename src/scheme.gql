@@ -30,6 +30,7 @@ input ProductInput {
     content: String!
     price: Int!
     discountRate: Int!
+    brand: ID!
 }
 
 type Query {

@@ -1,5 +1,6 @@
-import { Resolver, Query, Args } from '@nestjs/graphql';
-import { Product } from './product.model';
+import { Resolver, Query, Args, Mutation } from '@nestjs/graphql';
+import { Product, ProductInput } from './product.model';
+import { ApolloError } from 'apollo-server-express';
 import { ProductService } from './product.service';
 
 @Resolver(() => Product)
@@ -11,25 +12,21 @@ export class ProductResolver {
         return this.productService.getHello();
     }
 
-    @Query((returns) => Product, { nullable: true })
-    getProduct(@Args('id') id: string) {
-        return {
-            id: '',
-            name: 'base item',
-            content: '',
-            price: 100,
-            discountRate: 0,
-            wishCount: 0,
-            reviewScore: 0,
-            reviewCount: 0,
-            qnaCount: 0,
-            brand: {
-                id: '',
-                name: '',
-                image: '',
-                isWish: false,
-                wishCount: 0,
-            },
-        };
+    @Query(() => Product, { nullable: true })
+    async getProduct(@Args('id') id: string) {
+        try {
+            return await this.productService.getProduct(id);
+        } catch (e) {
+            throw new ApolloError(e);
+        }
+    }
+
+    @Mutation(() => Product)
+    async addProduct(@Args('productInputData') productInputData: ProductInput) {
+        try {
+            return await this.productService.addProduct(productInputData);
+        } catch (e) {
+            throw new ApolloError(e);
+        }
     }
 }
